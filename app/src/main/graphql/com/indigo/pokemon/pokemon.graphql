@@ -1,5 +1,5 @@
 query Pokemon{
-    pokemon_v2_pokemon(limit: 10) {
+    pokemon_v2_pokemon(limit: 20) {
         height
         id
         name

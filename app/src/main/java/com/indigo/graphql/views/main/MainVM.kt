@@ -16,6 +16,8 @@ import javax.inject.Inject
 class MainVM @Inject constructor(val repository: Repository) : ViewModel() {
 
     val pokemonList = MutableSharedFlow<List<Pokemon>>()
+    val loader = MutableSharedFlow<Boolean>()
+
 
     init {
         getPokemon()
@@ -23,11 +25,12 @@ class MainVM @Inject constructor(val repository: Repository) : ViewModel() {
 
      fun getPokemon() {
         CoroutineScope(Dispatchers.IO).launch {
+            loader.emit(true)
             repository.makeApiCall(PokemonQuery()).collect {
                 when (it) {
                     is NetworkProcess.Success -> {
-                        pokemonList.emit(it.data?.pokemon_v2_pokemon?.map { it.toSimplePokemon() }
-                            ?: emptyList())
+                        loader.emit(false)
+                        pokemonList.emit(it.data?.pokemon_v2_pokemon?.map { it.toSimplePokemon() } ?: emptyList())
                     }
 
                     is NetworkProcess.Failure -> {

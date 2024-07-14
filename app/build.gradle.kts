@@ -2,14 +2,13 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.apollo.graph.ql)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.apollo.graph.ql)
 }
 
 android {
     namespace = "com.indigo.graphql"
     compileSdk = 34
-
     defaultConfig {
         applicationId = "com.indigo.graphql"
         minSdk = 24
@@ -19,7 +18,6 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
     apollo {
         service("service1") {
             sourceFolder.set("com/indigo/graph")
@@ -33,9 +31,6 @@ android {
         }
        // useVersion2Compat()
     }
-
-
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -72,9 +67,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    //Graph ql
-    implementation(libs.apollo.runtime)
-    implementation(libs.apollo.api)
 
     //Gson
     implementation(libs.convertor.gson)
@@ -83,6 +75,9 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.kapt)
 
+    //Graph ql
+    implementation(libs.apollo.runtime)
+    implementation(libs.apollo.api)
 
 }
 

@@ -12,7 +12,4 @@ plugins {
     //Graph ql
     alias(libs.plugins.apollo.graph.ql) apply false
 
-
-
-
 }

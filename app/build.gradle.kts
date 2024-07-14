@@ -41,10 +41,7 @@ android {
         viewBinding = true
     }
 }
-
-
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -53,18 +50,13 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-
     //Gson
     implementation(libs.convertor.gson)
-
     //hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.kapt)
-
     //Graph ql
     implementation(libs.apollo.runtime)
     implementation(libs.apollo.api)
-
 }
 

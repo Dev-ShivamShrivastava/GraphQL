@@ -36,13 +36,10 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         binding.rvPokemon.adapter = adapter
-
-
         lifecycleScope.launch {
             supervisorScope {
                 launch {
                     mainVM.pokemonList.collect {
-
                         if(it.isNotEmpty()){
                             adapter.setData(it)
                         }

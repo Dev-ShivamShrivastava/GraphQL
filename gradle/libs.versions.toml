@@ -26,17 +26,17 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
-apollo-runtime = { group = "com.apollographql.apollo3", name = "apollo-runtime", version.ref = "apolloruntime" }
-apollo-api = { group = "com.apollographql.apollo3", name = "apollo-api", version.ref = "apolloapi" }
 convertor-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "gson" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-kapt = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+apollo-runtime = { group = "com.apollographql.apollo3", name = "apollo-runtime", version.ref = "apolloruntime" }
+apollo-api = { group = "com.apollographql.apollo3", name = "apollo-api", version.ref = "apolloapi" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-apollo-graph-ql = { id = "com.apollographql.apollo3", version.ref = "graphql" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp-version" }
+apollo-graph-ql = { id = "com.apollographql.apollo3", version.ref = "graphql" }
 
 

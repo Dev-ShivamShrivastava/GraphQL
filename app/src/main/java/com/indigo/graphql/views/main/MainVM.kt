@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.indigo.graphql.model.Pokemon
 import com.indigo.graphql.network.NetworkProcess
 import com.indigo.graphql.network.Repository
+import com.indigo.pokemon.PokemonByIdQuery
 import com.indigo.pokemon.PokemonQuery
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -30,7 +31,8 @@ class MainVM @Inject constructor(val repository: Repository) : ViewModel() {
                 when (it) {
                     is NetworkProcess.Success -> {
                         loader.emit(false)
-                        pokemonList.emit(it.data?.pokemon_v2_pokemon?.map { it.toSimplePokemon() } ?: emptyList())
+                        val list = it.data?.pokemon_v2_pokemon?.map { it.toSimplePokemon() }
+                        pokemonList.emit( list ?: emptyList())
                     }
 
                     is NetworkProcess.Failure -> {
@@ -45,5 +47,25 @@ class MainVM @Inject constructor(val repository: Repository) : ViewModel() {
             }
         }
 
+    }
+
+    fun getPokemonById(id: Int){
+        CoroutineScope(Dispatchers.IO).launch {
+            repository.makeApiCall(PokemonByIdQuery(id)).collect {
+                when (it) {
+                    is NetworkProcess.Success -> {
+                    }
+
+                    is NetworkProcess.Failure -> {
+
+                    }
+
+                    is NetworkProcess.Loading -> {
+
+
+                    }
+                }
+            }
+        }
     }
 }

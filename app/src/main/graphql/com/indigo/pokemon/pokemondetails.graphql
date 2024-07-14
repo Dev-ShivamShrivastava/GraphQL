@@ -1,0 +1,8 @@
+query PokemonById($id: Int!){
+    pokemon_v2_ability_by_pk(id: $id) {
+        generation_id
+        id
+        is_main_series
+        name
+    }
+}

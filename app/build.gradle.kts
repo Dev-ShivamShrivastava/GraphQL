@@ -19,17 +19,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     apollo {
-        service("service1") {
-            sourceFolder.set("com/indigo/graph")
-            packageName.set("com.indigo.graph")
-            schemaFile.set(file("src/main/graphql/com/indigo/graph/schema.graphqls"))
-        }
-        service("service2") {
-            sourceFolder.set("com/indigo/pokemon")
-            packageName.set("com.indigo.pokemon")
-            schemaFile.set(file("src/main/graphql/com/indigo/pokemon/schema.graphqls"))
-        }
-       // useVersion2Compat()
+        useVersion2Compat()
     }
     buildTypes {
         release {
@@ -51,9 +41,6 @@ android {
         viewBinding = true
     }
 }
-
-
-
 
 
 dependencies {
